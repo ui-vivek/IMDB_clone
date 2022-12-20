@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    <title>IMDB Clone</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.18.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+    <!-- =====================================Navbar -->
+    <header class="bg-dark" >
+        <div id="navbar">
+           
+            <ul id="nav-menu" style="margin-bottom: 0%;">
+                <li class="menu" id="logo"><a style="font-family: fantasy;color: black;" href="index.html">IMDb</a></li>
+                <li class="menu"><a href="#">ImdbPro</a></li>
+                <li class="menu search-element" id="">
+                    <!-- <input type="text" placeholder="Search IMBd"> -->
+                    <input type = "text" class = "form-control" placeholder="Search Movie Title ..." id = "movie-search-box" onkeyup="findMovies()" onclick = "findMovies()">
+
+                <div class = "search-list" id = "search-list">
+                    <!-- list here -->
+                    <!-- <div class = "search-list-item">
+                        <div class = "cccl">
+                            <img src = "medium-cover.jpg">
+                        </div>
+                        <div class = "search-item-info">
+                            <h3>Guardians of the Galaxy Vol. 2</h3>
+                            <p>2017</p>
+                        </div>
+                    </div> -->
+                    
+                </div>
+                </li>
+                <li class="menu"><a href="favourite.html">Favourite</a></li>
+                <li class="menu"><a href="#">WatchList</a></li >
+                <li class="menu"><a href="#">Sign In</a></li>
+            </ul>
+        </div>
+    </header>
+    <div id="poster">
+        <div id="carouselExampleDark" class="carousel carousel-light slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="10000">
+                <img src="poster5.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Driver</h5>
+                  <p>A mysterious Hollywood action film stuntman gets in trouble with gangsters when he tries to help his neighbor's husband rob a pawn shop while serving as his getaway driver.</p>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="2000">
+                <img src="poster4.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Avengers: Endgame</h5>
+                  <p>After Thanos, an intergalactic warlord, disintegrates half of the universe, the Avengers must reunite and assemble again to reinvigorate their trounced allies and restore balance.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="poster3.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>John Wick</h5>
+                  <p>An ex-hit-man comes out of retirement to track down the gangsters that killed his dog and took his car.</p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    </div>
+    
+    <div class="fab">
+        <p style="margin: 5px; color: gold;">Top Movie of 2022</p>
+        <div class="ins">
+            <img class="top-img" src="https://m.media-amazon.com/images/M/MV5BNjA3NGExZDktNDlhZC00NjYyLTgwNmUtZWUzMDYwMTZjZWUyXkEyXkFqcGdeQXVyMTU1MDM3NDk0._V1_SX300.jpg" alt="Avatar">
+            <div class="top-movie-name">
+                <h4 style="color: yellow;margin: 0px 0px 0px 5px;">Avatar
+                </h4>
+                <p class="top-movie-rating">Rating:PG-13</p>
+                <p class="top-movie-Genre">Action, Adventure, Fantasy</p>
+            </div>
+        </div>
+        <div class="ins">
+            <img class="top-img" src="https://m.media-amazon.com/images/M/MV5BM2ZmMjEyZmYtOGM4YS00YTNhLWE3ZDMtNzQxM2RhNjBlODIyXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_SX300.jpg" alt="Wednesday">
+            <div class="top-movie-name">
+                <h4 style="color: yellow;margin: 0px 0px 0px 5px;">Wednesday
+                </h4>
+                <p class="top-movie-rating">Rating:TV-14</p>
+                <p class="top-movie-Genre">Comedy, Crime, Family</p>
+            </div>
+        </div>
+        <div class="ins">
+            <img class="top-img" src="https://m.media-amazon.com/images/M/MV5BYTk3MDljOWQtNGI2My00OTEzLTlhYjQtOTQ4ODM2MzUwY2IwXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_SX300.jpg" alt="poster2">
+            <div class="top-movie-name">
+                <h4 style="color: yellow;margin: 0px 0px 0px 5px;">Spider-man-3
+                </h4>
+                <p class="top-movie-rating">Rating:PG-13</p>
+                <p class="top-movie-Genre">Action, Adventure, Sci-Fi</p>
+            </div>
+        </div>
+        <div class="ins">
+            <img class="top-img" src="https://m.media-amazon.com/images/M/MV5BNDA5OWE3YTUtNjU0Mi00MWI0LTg3ODgtYmUwNzdkNTdiOWQ2XkEyXkFqcGdeQXVyOTI3MzI4MzA@._V1_SX300.jpg" alt="poster2">
+            <div class="top-movie-name">
+                <h4 style="color: yellow;margin: 0px 0px 0px 5px;">Bhediya
+                </h4>
+                <p class="top-movie-rating">Rating:N/A</p>
+                <p class="top-movie-Genre">Comedy, Horror, Thriller</p>
+            </div>
+        </div>
+        <div class="ins">
+            <img class="top-img" src="https://m.media-amazon.com/images/M/MV5BMDU2ZmM2OTYtNzIxYy00NjM5LTliNGQtN2JmOWQzYTBmZWUzXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg" alt="poster2">
+            <div class="top-movie-name">
+                <h4 style="color: yellow;margin: 0px 0px 0px 5px;">Bullet Train
+                </h4>
+                <p class="top-movie-rating">Rating:R</p>
+                <p class="top-movie-Genre">Action, Comedy, Thriller</p>
+            </div>
+        </div>
+    </div>
+    <div style="height: 500px;">
+        <p style="margin: 20px 0px 0px 50px;color: white;font-size: large;">Explore what’s streaming 
+            <i class='bx bx-right-arrow' style="color: gold;"></i>
+        </p>
+        <div id="explore-card-group">
+            <div class="explore-card">
+                <i class='bx bxs-bookmark-plus bx-md bookmark'></i>
+                <img style="height: 250px;width: 100%;" src="https://m.media-amazon.com/images/M/MV5BZjY5ZjQyMjMtMmEwOC00Nzc2LTllYTItMmU2MzJjNTg1NjY0XkEyXkFqcGdeQXVyNjQ1MTMzMDQ@._V1_SX300.jpg" alt="img">
+                <div style="margin-left: 10px;color: white;">
+                    <i class='bx bxs-star ' style="color: gold;"></i>
+                    8.1
+                </div>
+                <p style="margin-left:10px ;color: white;">
+                    Drive
+                </p>
+                <button style="display:block;margin: auto; background-color: gray;padding: 4px 8px;border-radius: 4px;color: white;">Add to WatchList</button>
+                <div class="trailer">
+                    <i class='bx bx-play-circle bx-sm'></i>
+                    Trailer
+                </div>
+            </div>
+            <div class="explore-card">
+                <i class='bx bxs-bookmark-plus bx-md bookmark'></i>
+                <img style="height: 250px;width: 100%;" src="https://m.media-amazon.com/images/M/MV5BMjQ0MTgyNjAxMV5BMl5BanBnXkFtZTgwNjUzMDkyODE@._V1_SX300.jpg" alt="img">
+                <div style="margin-left: 10px;color: white;">
+                    <i class='bx bxs-star ' style="color: gold;"></i>
+                    8.5
+                </div>
+                <p style="margin-left:10px ;color: white;">
+                    Civil War
+                </p>
+                <button style="display:block;margin: auto; background-color: gray;padding: 4px 8px;border-radius: 4px;color: white;">Add to WatchList</button>
+                <div class="trailer">
+                    <i class='bx bx-play-circle bx-sm'></i>
+                    Trailer
+                </div>
+            </div>
+            <div class="explore-card">
+                <i class='bx bxs-bookmark-plus bx-md bookmark'></i>
+                <img style="height: 250px;width: 100%;" src="https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg" alt="img">
+                <div style="margin-left: 10px;color: white;">
+                    <i class='bx bxs-star ' style="color: gold;"></i>
+                    8.9
+                </div>
+                <p style="margin-left:10px ;color: white;">
+                    End-Game
+                </p>
+                <button style="display:block;margin: auto; background-color: gray;padding: 4px 8px;border-radius: 4px;color: white;">Add to WatchList</button>
+                <div class="trailer">
+                    <i class='bx bx-play-circle bx-sm'></i>
+                    Trailer
+                </div>
+            </div>
+            <div class="explore-card">
+                <i class='bx bxs-bookmark-plus bx-md bookmark'></i>
+                <img style="height: 250px;width: 100%;" src="https://m.media-amazon.com/images/M/MV5BMTU2NjA1ODgzMF5BMl5BanBnXkFtZTgwMTM2MTI4MjE@._V1_SX300.jpg" alt="img">
+                <div style="margin-left: 10px;color: white;">
+                    <i class='bx bxs-star ' style="color: gold;"></i>
+                    7.1
+                </div>
+                <p style="margin-left:10px ;color: white;">
+                    John Wick
+                </p>
+                <button style="display:block;margin: auto; background-color: gray;padding: 4px 8px;border-radius: 4px;color: white;">Add to WatchList</button>
+                <div class="trailer">
+                    <i class='bx bx-play-circle bx-sm'></i>
+                    Trailer
+                </div>
+            </div>
+            <div class="explore-card">
+                <i class='bx bxs-bookmark-plus bx-md bookmark'></i>
+                <img style="height: 250px;width: 100%;" src="https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM1YjI1NzMxXkEyXkFqcGdeQXVyMjQxNTE1MDA@._V1_SX300.jpg" alt="img">
+                <div style="margin-left: 10px;color: white;">
+                    <i class='bx bxs-star ' style="color: gold;"></i>
+                    9.1
+                </div>
+                <p style="margin-left:10px ;color: white;">
+                    Avatar 2
+                </p>
+                <button style="display:block;margin: auto; background-color: gray;padding: 4px 8px;border-radius: 4px;color: white;">Add to WatchList</button>
+                <div class="trailer">
+                    <i class='bx bx-play-circle bx-sm'></i>
+                    Trailer
+                </div>
+            </div>
+        </div>
+    </div>
+    <p style="color: gold;font-size: xx-large; margin: 20px 0px 0px 50px">What to watch</p>
+    <div>
+        <div>
+            <p style="margin: 20px 0px 0px 50px;color: white;font-size:x-large;">IMDb Best of 2022
+                <i class='bx bx-right-arrow' style="color: gold;"></i>
+            </p>
+            <p style="margin: 0px 0px 0px 50px;color: white">Sponsored by Disney+</p>
+            <img style="display: block;margin: auto;" src="banner.jpg" alt="">
+        </div>
+        <p style="margin: 20px 0px 0px 50px;color: white;font-size: large;">Top picks
+            <i class='bx bx-right-arrow' style="color: gold;"></i>
+        </p>
+        <div id="explore-card-group">
+            <div class="explore-card">
+                <i class='bx bxs-bookmark-plus bx-md bookmark'></i>
+                <img style="height: 250px;width: 100%;" src="https://m.media-amazon.com/images/M/MV5BMDM3MDQyODAtZDJjMy00MWU2LWFlMmEtNThhMTg3MjBhZjZlXkEyXkFqcGdeQXVyODI2MzM0MTM@._V1_SX300.jpg" alt="img">
+                <div style="margin-left: 10px;color: white;">
+                    <i class='bx bxs-star ' style="color: gold;"></i>
+                    8.1
+                </div>
+                <p style="margin-left:10px ;color: white;">
+                    Broken But Beautiful
+                </p>
+                <button style="display:block;margin: auto; background-color: gray;padding: 4px 8px;border-radius: 4px;color: white;">Add to WatchList</button>
+                <div class="trailer">
+                    <i class='bx bx-play-circle bx-sm'></i>
+                    Trailer
+                </div>
+            </div>
+            <div class="explore-card">
+                <i class='bx bxs-bookmark-plus bx-md bookmark'></i>
+                <img style="height: 250px;width: 100%;" src="https://m.media-amazon.com/images/M/MV5BMDZkYmVhNjMtNWU4MC00MDQxLWE3MjYtZGMzZWI1ZjhlOWJmXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg" alt="img">
+                <div style="margin-left: 10px;color: white;">
+                    <i class='bx bxs-star ' style="color: gold;"></i>
+                    8.5
+                </div>
+                <p style="margin-left:10px ;color: white;">
+                    Stranger Things
+                </p>
+                <button style="display:block;margin: auto; background-color: gray;padding: 4px 8px;border-radius: 4px;color: white;">Add to WatchList</button>
+                <div class="trailer">
+                    <i class='bx bx-play-circle bx-sm'></i>
+                    Trailer
+                </div>
+            </div>
+            <div class="explore-card">
+                <i class='bx bxs-bookmark-plus bx-md bookmark'></i>
+                <img style="height: 250px;width: 100%;" src="https://m.media-amazon.com/images/M/MV5BMTU1N2I5OTgtNDE2MS00ZTdmLWJlODktNDMwMGVmNzY5NmUxXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_SX300.jpg" alt="img">
+                <div style="margin-left: 10px;color: white;">
+                    <i class='bx bxs-star ' style="color: gold;"></i>
+                    7.5
+                </div>
+                <p style="margin-left:10px ;color: white;">
+                    1899
+                </p>
+                <button style="display:block;margin: auto; background-color: gray;padding: 4px 8px;border-radius: 4px;color: white;">Add to WatchList</button>
+                <div class="trailer">
+                    <i class='bx bx-play-circle bx-sm'></i>
+                    Trailer
+                </div>
+            </div>
+            <div class="explore-card">
+                <i class='bx bxs-bookmark-plus bx-md bookmark'></i>
+                <img style="height: 250px;width: 100%;" src="https://m.media-amazon.com/images/M/MV5BYzJkNDljZjItYmUzOC00MDBmLWEyMzgtZTE3YTAxMDdiOTFhXkEyXkFqcGdeQXVyODI2MzM0MTM@._V1_SX300.jpg" alt="img">
+                <div style="margin-left: 10px;color: white;">
+                    <i class='bx bxs-star ' style="color: gold;"></i>
+                    7.1
+                </div>
+                <p style="margin-left:10px ;color: white;">
+                    Apharan
+                </p>
+                <button style="display:block;margin: auto; background-color: gray;padding: 4px 8px;border-radius: 4px;color: white;">Add to WatchList</button>
+                <div class="trailer">
+                    <i class='bx bx-play-circle bx-sm'></i>
+                    Trailer
+                </div>
+            </div>
+            <div class="explore-card">
+                <i class='bx bxs-bookmark-plus bx-md bookmark'></i>
+                <img style="height: 250px;width: 100%;" src="https://m.media-amazon.com/images/M/MV5BOTJmZTQ4MzYtNWYxMC00MmE2LTlmYTEtZDgwODk4NWE4YjExXkEyXkFqcGdeQXVyMTE2NDE2Njcy._V1_SX300.jpg" alt="img">
+                <div style="margin-left: 10px;color: white;">
+                    <i class='bx bxs-star ' style="color: gold;"></i>
+                    8.8
+                </div>
+                <p style="margin-left:10px ;color: white;">
+                    Dharavi Bank
+                </p>
+                <button style="display:block;margin: auto; background-color: gray;padding: 4px 8px;border-radius: 4px;color: white;">Add to WatchList</button>
+                <div class="trailer">
+                    <i class='bx bx-play-circle bx-sm'></i>
+                    Trailer
+                </div>
+            </div>
+        </div>
+    </div>
+    <div >
+        <p style="margin: 20px 0px 0px 50px;color: white;font-size:x-large;">Recent viewd
+            <i class='bx bx-right-arrow' style="color: gold;"></i>
+        </p>
+        <div class="card mb-3" style="max-width: 540px; display: block;margin: auto;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img style="height: 100%;" src="https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM1YjI1NzMxXkEyXkFqcGdeQXVyMjQxNTE1MDA@._V1_SX300.jpg" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Avatar: The Way of Water</h5>
+                  <p class="card-text">Jake Sully and Ney'tiri have formed a family and are doing everything to stay together. However, they must leave their home and explore the regions of Pandora. When an ancient threat resurfaces, Jake must fight a difficult war against the humans.</p>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <footer>
+        <p style="color: white;margin-bottom: 0px; display: flex;justify-content: center;">Created by Vivek Singh</p>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+</body>
+</html>
